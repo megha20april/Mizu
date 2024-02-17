@@ -3,7 +3,7 @@ import Web3 from "web3";
 import contractABI from "./abi.json"; // Importing ABI from JSON file
 import "./App.css";
 
-const tokenAddress = "0x14b9C0F5F9C727BDA97A188A021CBD757FE7C08F"; // Replace with your actual token address
+const tokenAddress = "0x4e8799573981535115B9Fc29F741cf05f37F67ca"; // Replace with your actual token address
 
 const App = () => {
   const [web3, setWeb3] = useState(undefined);
@@ -45,8 +45,9 @@ const App = () => {
     const contract = new web3.eth.Contract(contractABI, tokenAddress); // Using imported ABI
 
     try {
+      const amountInWei = web3.utils.toWei(amount.toString(), 'ether');
       await contract.methods
-        .transfer(recipient, amount)
+        .transfer(recipient, amountInWei)
         .send({ from: accounts[selectedAccountIndex] });
       alert("Transfer successful");
     } catch (error) {
