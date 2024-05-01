@@ -197,7 +197,7 @@ const App = () => {
   
 
   return (
-    <div>
+    <div className="container">
       <select value={selectedAccountIndex} onChange={(e) => setSelectedAccountIndex(e.target.value)}>
                 {accounts.map((account, index) => (
                     <option key={index} value={index}>Account {index + 1}</option>

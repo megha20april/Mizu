@@ -1,38 +1,106 @@
-.App {
-  text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  width: 90%;
+  max-width: 1000px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap; /* Arrange tiles in a grid */
+  justify-content: center; /* Center tiles horizontally */
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  margin-bottom: 20px; /* Add margin at the bottom */
 }
 
-.App-link {
-  color: #61dafb;
+.tile {
+  background-color: #ffcccb; /* Light coral */
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px; /* Add margin around tiles */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tile:nth-child(odd) {
+  background-color: #add8e6; /* Light blue */
+}
+
+.transfer-section,
+.mint-tokens-container,
+.burn-tokens-container,
+.pause-unpause-container,
+.stake-tokens-container,
+.withdraw-section,
+.multi-send-section {
+  background-color: #ffd3e0;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px; /* Add margin around sections */
+  width: calc(50% - 20px); /* Set section width to half of the container width with margin */
+}
+
+.transfer-section {
+  width: 100%; /* Set full width for transfer section */
+}
+
+.transfer-button,
+.mint-button,
+.burn-button,
+.pause-button,
+.unpause-button,
+.stake-button,
+.withdraw-button,
+.add-recipient-button,
+.multi-send-button {
+  background-color: #f9a7b0;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.transfer-button:hover,
+.mint-button:hover,
+.burn-button:hover,
+.pause-button:hover,
+.unpause-button:hover,
+.stake-button:hover,
+.withdraw-button:hover,
+.add-recipient-button:hover,
+.multi-send-button:hover {
+  background-color: #ec6e81;
+}
+
+.green-button {
+  background-color: #a3f7bf;
+  color: #000;
+}
+
+.ar-button {
+  background-color: #a7c5eb;
+  color: #fff;
+}
+
+.multi-send-input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.multi-send-input-container input {
+  flex: 1;
+  margin-right: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.multi-send-input-container input:last-child {
+  margin-right: 0;
 }
